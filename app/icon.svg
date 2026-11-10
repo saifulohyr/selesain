@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Hard offset shadow -->
+  <rect x="16" y="18" width="100" height="100" rx="28" fill="#141414" />
+  <!-- Soft brutalism main tile -->
+  <rect
+    x="10"
+    y="10"
+    width="100"
+    height="100"
+    rx="28"
+    fill="#FFD400"
+    stroke="#141414"
+    stroke-width="7"
+  />
+  <!-- Inner soft card -->
+  <rect
+    x="22"
+    y="22"
+    width="76"
+    height="76"
+    rx="20"
+    fill="#1E5EFF"
+    stroke="#141414"
+    stroke-width="6"
+  />
+  <!-- Pink sticker accent dot -->
+  <circle
+    cx="86"
+    cy="34"
+    r="10"
+    fill="#FF90B8"
+    stroke="#141414"
+    stroke-width="5"
+  />
+  <!-- Bold rounded checkmark + S curve -->
+  <path
+    d="M38 63L54 79L84 45"
+    stroke="#FFF9E8"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M38 63L54 79L84 45"
+    stroke="#58B978"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

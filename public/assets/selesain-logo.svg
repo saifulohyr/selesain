@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 112" fill="none">
+  <!-- Outer pill hard shadow -->
+  <rect x="10" y="14" width="402" height="90" rx="26" fill="#141414" />
+  <!-- Outer soft-brutalist badge -->
+  <rect
+    x="4"
+    y="6"
+    width="402"
+    height="90"
+    rx="26"
+    fill="#FFF9E8"
+    stroke="#141414"
+    stroke-width="6"
+  />
+
+  <!-- Left Icon Box Shadow -->
+  <rect x="22" y="24" width="62" height="62" rx="18" fill="#141414" />
+  <!-- Left Icon Box -->
+  <rect
+    x="18"
+    y="19"
+    width="62"
+    height="62"
+    rx="18"
+    fill="#1E5EFF"
+    stroke="#141414"
+    stroke-width="5"
+  />
+  <!-- Pink Spark Dot -->
+  <circle
+    cx="67"
+    cy="32"
+    r="7"
+    fill="#FF90B8"
+    stroke="#141414"
+    stroke-width="3.5"
+  />
+  <!-- Checkmark inside icon box -->
+  <path
+    d="M33 52L44 63L65 39"
+    stroke="#FFD400"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Soft-Brutalism Wordmark "SELESAIN" -->
+  <text
+    x="98"
+    y="67"
+    fill="#141414"
+    font-family="Arial Black, Impact, system-ui, sans-serif"
+    font-size="44"
+    font-weight="900"
+    letter-spacing="-1.5"
+  >
+    SELESA
+  </text>
+
+  <!-- Highlighted "IN" pill sticker -->
+  <rect x="289" y="25" width="76" height="54" rx="15" fill="#141414" />
+  <rect
+    x="285"
+    y="21"
+    width="76"
+    height="54"
+    rx="15"
+    fill="#58B978"
+    stroke="#141414"
+    stroke-width="5"
+  />
+  <text
+    x="300"
+    y="61"
+    fill="#FFF9E8"
+    stroke="#141414"
+    stroke-width="2"
+    paint-order="stroke"
+    font-family="Arial Black, Impact, system-ui, sans-serif"
+    font-size="38"
+    font-weight="900"
+    letter-spacing="-1"
+  >
+    IN
+  </text>
+
+  <!-- Exclamation / Arcade Dot -->
+  <circle
+    cx="381"
+    cy="60"
+    r="10"
+    fill="#FF90B8"
+    stroke="#141414"
+    stroke-width="5"
+  />
+</svg>
