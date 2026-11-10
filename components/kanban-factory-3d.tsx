@@ -390,6 +390,17 @@ export default function KanbanFactory3D({
       window.cancelAnimationFrame(frameId);
       resizeObserver?.disconnect();
       window.removeEventListener("resize", handleResize);
+      rootGroup.traverse((obj) => {
+        if ("geometry" in obj && obj.geometry instanceof THREE.BufferGeometry) {
+          obj.geometry.dispose();
+        }
+        if ("material" in obj && obj.material) {
+          const materials = Array.isArray(obj.material)
+            ? obj.material
+            : [obj.material];
+          materials.forEach((mat) => mat.dispose());
+        }
+      });
       renderer.dispose();
     };
   }, []);
