@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 import {
+  countTodosForDate,
   createTodo,
   removeTodo,
   setTodoCompleted,
@@ -11,6 +12,7 @@ import {
 import { isValidDateKey } from "@/lib/date";
 
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const MAX_TODOS_PER_DATE = 200;
 
 async function requireUserId() {
   const { userId } = await auth();
@@ -24,14 +26,27 @@ async function requireUserId() {
 
 export async function createTodoAction(formData: FormData) {
   const userId = await requireUserId();
-  const title = String(formData.get("title") ?? "").trim();
+  const title = String(formData.get("title") ?? "")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .trim();
   const scheduledDate = String(formData.get("scheduledDate") ?? "");
   const initialStatus = String(formData.get("status") ?? "dikerjakan");
-  const completed = initialStatus === "selesai";
 
-  if (!title || title.length > 200 || !isValidDateKey(scheduledDate)) {
+  if (
+    !title ||
+    title.length > 200 ||
+    !isValidDateKey(scheduledDate) ||
+    (initialStatus !== "dikerjakan" && initialStatus !== "selesai")
+  ) {
     return;
   }
+
+  const currentCount = await countTodosForDate(userId, scheduledDate);
+  if (currentCount >= MAX_TODOS_PER_DATE) {
+    return;
+  }
+
+  const completed = initialStatus === "selesai";
 
   await createTodo(userId, title, scheduledDate, completed);
   revalidatePath("/");

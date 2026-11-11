@@ -1,9 +1,23 @@
 import "server-only";
 
-import { and, desc, eq } from "drizzle-orm";
+import { and, count, desc, eq } from "drizzle-orm";
 
 import { getDb } from "@/lib/db";
 import { todos } from "@/lib/db/schema";
+
+export async function countTodosForDate(userId: string, scheduledDate: string) {
+  const [row] = await getDb()
+    .select({ total: count() })
+    .from(todos)
+    .where(
+      and(
+        eq(todos.userId, userId),
+        eq(todos.scheduledDate, scheduledDate),
+      ),
+    );
+
+  return Number(row?.total ?? 0);
+}
 
 export function listTodos(userId: string, scheduledDate: string) {
   return getDb()
